@@ -661,8 +661,8 @@ local function applyUnstuckSkipNotifierSettings()
       unstuck_skip_notifier:Hide()
       unstuck_skip_notifier.text:Hide()
       if unstuck_skip_notifier.timer_handle ~= nil then
-	unstuck_skip_notifier.timer_handle:Cancel()
-	unstuck_skip_notifier.timer_handle = nil
+	    unstuck_skip_notifier.timer_handle:Cancel()
+	    unstuck_skip_notifier.timer_handle = nil
       end
 
     else
@@ -670,13 +670,13 @@ local function applyUnstuckSkipNotifierSettings()
       unstuck_skip_notifier.text:Show()
 
       if unstuck_skip_notifier.timer_handle ~= nil then
-	unstuck_skip_notifier.timer_handle:Cancel()
-	unstuck_skip_notifier.timer_handle = nil
+        unstuck_skip_notifier.timer_handle:Cancel()
+        unstuck_skip_notifier.timer_handle = nil
       end
 
-	unstuck_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
-	  unstuck_skip_notifier:UpdateTarget()
-	end)
+	  unstuck_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
+	    unstuck_skip_notifier:UpdateTarget()
+	  end)
     end
 end
 
@@ -705,7 +705,6 @@ local options = {
 					  end
 					end,
 					set = function(info, r,g,b,a)
-
 					  if unstuck_skip_settings['unstuck_skip_partition_color'] == nil then
 					    unstuck_skip_settings['unstuck_skip_partition_color'] = {}
 					  end
