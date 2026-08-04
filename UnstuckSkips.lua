@@ -2,7 +2,6 @@ local f = CreateFrame('frame', nil, WorldMapPlayerLower)
 f:SetAllPoints()
 
 local defaults = {
-  ['unstuck_skip_notifier_pos'] = {['x'] = 0.0, ['y'] = 0.0},
   ['unstuck_skip_partition_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
@@ -33,10 +32,6 @@ unstuck_skip_settings = {
   ['disabled'] = true,
   ['gy_disabled'] = true,
   ['show_unstuck_skip_notifier'] = true,
-  ['unstuck_skip_notifier_pos'] = {
-    ['x'] = 0.0,
-    ['y'] = 0.0,
-  },
   ['unstuck_skip_partition_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
@@ -561,14 +556,12 @@ function DeathSkips_Toggle_Click()
   update()
 end
 
-local unstuck_skip_notifier = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+local unstuck_skip_notifier = CreateFrame("Frame", "UnstuckSkipsFrame", UIParent, "BackdropTemplate")
 unstuck_skip_notifier:SetPoint("CENTER")
 unstuck_skip_notifier:SetSize(160, 40)
 unstuck_skip_notifier:SetBackdrop(BACKDROP_TUTORIAL_16_16)
 
 unstuck_skip_notifier:SetMovable(true)
-unstuck_skip_notifier:EnableMouse(true)
-unstuck_skip_notifier:RegisterForDrag("LeftButton")
 unstuck_skip_notifier.title_text = unstuck_skip_notifier:CreateFontString(nil,"ARTWORK")
 unstuck_skip_notifier.title_text:SetFont("Fonts\\ARIALN.ttf", 9, "OUTLINE")
 unstuck_skip_notifier.title_text:SetPoint("CENTER",0,10)
@@ -632,34 +625,16 @@ function unstuck_skip_notifier:UpdateTarget()
   end
 end
 
-unstuck_skip_notifier:SetScript("OnDragStart", function(self, button)
+unstuck_skip_notifier:HookScript("OnMouseDown", function(self)
 	self:StartMoving()
-	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
-	local x,y = self:GetCenter()
-	local px,py = self:GetParent():GetCenter();
-	if unstuck_skip_settings['unstuck_skip_notifier_pos'] == nil then
-	  unstuck_skip_settings['unstuck_skip_notifier_pos'] = {}
-	end
-	unstuck_skip_settings['unstuck_skip_notifier_pos']['x'] = x - px
-	unstuck_skip_settings['unstuck_skip_notifier_pos']['y'] = y - py
 end)
-unstuck_skip_notifier:SetScript("OnDragStop", function(self)
+unstuck_skip_notifier:HookScript("OnMouseUp", function(self)
 	self:StopMovingOrSizing()
-
-	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
-	local x,y = self:GetCenter()
-	local px,py = self:GetParent():GetCenter();
-	if unstuck_skip_settings['unstuck_skip_notifier_pos'] == nil then
-	  unstuck_skip_settings['unstuck_skip_notifier_pos'] = {}
-	end
-	unstuck_skip_settings['unstuck_skip_notifier_pos']['x'] = x - px
-	unstuck_skip_settings['unstuck_skip_notifier_pos']['y'] = y - py
 end)
 
 local function applyUnstuckSkipNotifierSettings()
     if unstuck_skip_settings["show_unstuck_skip_notifier"] ~= nil and unstuck_skip_settings["show_unstuck_skip_notifier"] == false then
       unstuck_skip_notifier:Hide()
-      unstuck_skip_notifier.text:Hide()
       if unstuck_skip_notifier.timer_handle ~= nil then
 	    unstuck_skip_notifier.timer_handle:Cancel()
 	    unstuck_skip_notifier.timer_handle = nil
@@ -848,12 +823,7 @@ unstuck_skip_event_handler:SetScript("OnEvent", function(self, event, ...)
     applyTargetsColor(texs_kalimdor_, unstuck_skip_settings['unstuck_skip_target_color'] or defaults['death_skip_target_color'])
 
     applyUnstuckSkipNotifierSettings()
-    if unstuck_skip_settings["unstuck_skip_notifier_pos"] then
-      unstuck_skip_notifier:SetPoint("CENTER", UIParent, "CENTER", unstuck_skip_settings["unstuck_skip_notifier_pos"]['x'], unstuck_skip_settings["unstuck_skip_notifier_pos"]['y'])
-    end
-
     unstuck_skip_notifier:UpdateTarget()
-
   end
 end)
 
