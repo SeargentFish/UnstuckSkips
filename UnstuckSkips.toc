@@ -1,0 +1,28 @@
+## Interface: 11509, 20506, 30405
+## Title: UnstuckSkips
+## Notes: Shows unstuck skip and death skip partitions
+## Author: SeargentFish (maintainer), Yazpad, Zarant, Semlar for original MapLines implementation, Tactics and TommySalami for skip discoveries and research
+## Version: @project-version@
+## Category: Map
+## Category-deDE: Karte
+## Category-esES: Mapa
+## Category-esMX: Mapa
+## Category-frFR: Carte
+## Category-itIT: Mappa
+## Category-koKR: 지도
+## Category-ptBR: Mapa
+## Category-ruRU: Карта
+## Category-zhCN: 地图
+## Category-zhTW: 地圖
+## SavedVariablesPerCharacter: locs2, locs_kalimdor2, unstuck_skip_settings
+
+Data/eastern_kingdom_partitions.lua
+Data/eastern_kingdom_locs.lua
+Data/eastern_kingdom_gy_locs.lua
+Data/eastern_kingdom_gy_partitions.lua
+Data/kalimdor_partitions.lua
+Data/kalimdor_gy_partitions.lua
+Data/kalimdor_locs.lua
+Data/kalimdor_gy_locs.lua
+UnstuckSkips.xml
+UnstuckSkips.lua

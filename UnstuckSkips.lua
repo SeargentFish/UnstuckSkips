@@ -2,14 +2,14 @@ local f = CreateFrame('frame', nil, WorldMapPlayerLower)
 f:SetAllPoints()
 
 local defaults = {
-  ['logout_skip_notifier_pos'] = {['x'] = 0.0, ['y'] = 0.0},
-  ['logout_skip_partition_color'] = {
+  ['unstuck_skip_notifier_pos'] = {['x'] = 0.0, ['y'] = 0.0},
+  ['unstuck_skip_partition_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
     ['b'] = 0.0,
     ['a'] = 0.6,
   },
-  ['logout_skip_target_color'] = {
+  ['unstuck_skip_target_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
     ['b'] = 0.0,
@@ -29,21 +29,21 @@ local defaults = {
   },
 }
 
-logout_skip_settings = {
+unstuck_skip_settings = {
   ['disabled'] = true,
   ['gy_disabled'] = true,
-  ['show_logout_skip_notifier'] = true,
-  ['logout_skip_notifier_pos'] = {
+  ['show_unstuck_skip_notifier'] = true,
+  ['unstuck_skip_notifier_pos'] = {
     ['x'] = 0.0,
     ['y'] = 0.0,
   },
-  ['logout_skip_partition_color'] = {
+  ['unstuck_skip_partition_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
     ['b'] = 0.0,
     ['a'] = 0.6,
   },
-  ['logout_skip_target_color'] = {
+  ['unstuck_skip_target_color'] = {
     ['r'] = 1.0,
     ['g'] = 0.0,
     ['b'] = 0.0,
@@ -257,7 +257,7 @@ for i=1,#voronoi_lines do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(eastern_kingdom_lines, Line)
 end
-applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'])
+applyLinesColor(eastern_kingdom_lines, unstuck_skip_settings['unstuck_skip_partition_color'])
 
 gy_start_points = {}
 gy_end_points = {}
@@ -279,7 +279,7 @@ for i=1,#gy_voronoi_lines do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(gy_lines, Line)
 end
-applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'])
+applyLinesColor(gy_lines, unstuck_skip_settings['death_skip_partition_color'])
 
 line_frames_kalimdor = {}
 start_points_kalimdor = {}
@@ -301,7 +301,7 @@ for i=1,#voronoi_lines_kalimdor do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(lines_kalimdor, Line)
 end
-applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'])
+applyLinesColor(lines_kalimdor, unstuck_skip_settings['unstuck_skip_partition_color'])
 
 gy_start_points_kalimdor = {}
 gy_end_points_kalimdor = {}
@@ -323,7 +323,7 @@ for i=1,#gy_voronoi_lines_kalimdor do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(gy_lines_kalimdor, Line)
 end
-applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'])
+applyLinesColor(gy_lines_kalimdor, unstuck_skip_settings['death_skip_partition_color'])
 
 points_ = {}
 texs_ = {}
@@ -333,7 +333,7 @@ for _,v in ipairs(eastern_kingdom_locs) do
   p:SetHeight(40)
   p:SetWidth(40)
   local tex = p:CreateTexture(nil, 'OVERLAY')
-  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetTexture("Interface\\Addons\\UnstuckSkips\\Media\\icon_x.blp")
   tex:SetDrawLayer("OVERLAY", 4)
   tex:SetHeight(15)
   tex:SetWidth(15)
@@ -350,7 +350,7 @@ for _,v in ipairs(eastern_kingdom_gy_locs) do
   p:SetHeight(40)
   p:SetWidth(40)
   local tex = p:CreateTexture(nil, 'OVERLAY')
-  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetTexture("Interface\\Addons\\UnstuckSkips\\Media\\icon_x.blp")
   tex:SetDrawLayer("OVERLAY", 4)
   tex:SetHeight(15)
   tex:SetWidth(15)
@@ -368,7 +368,7 @@ for _,v in ipairs(kalimdor_locs) do
   p:SetHeight(40)
   p:SetWidth(40)
   local tex = p:CreateTexture(nil, 'OVERLAY')
-  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetTexture("Interface\\Addons\\UnstuckSkips\\Media\\icon_x.blp")
   tex:SetDrawLayer("OVERLAY", 4)
   tex:SetHeight(15)
   tex:SetWidth(15)
@@ -385,7 +385,7 @@ for _,v in ipairs(kalimdor_gy_locs) do
   p:SetHeight(40)
   p:SetWidth(40)
   local tex = p:CreateTexture(nil, 'OVERLAY')
-  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetTexture("Interface\\Addons\\UnstuckSkips\\Media\\icon_x.blp")
   tex:SetDrawLayer("OVERLAY", 4)
   tex:SetHeight(15)
   tex:SetWidth(15)
@@ -396,7 +396,7 @@ for _,v in ipairs(kalimdor_gy_locs) do
 end
 
 local function update()
-	if logout_skip_settings['disabled'] and showing then
+	if unstuck_skip_settings['disabled'] and showing then
 	  for _,v in ipairs(eastern_kingdom_lines) do
 	      v:Hide()
 	  end
@@ -414,7 +414,7 @@ local function update()
 	  return 
 	end
 
-	if logout_skip_settings['gy_disabled'] and gy_showing then
+	if unstuck_skip_settings['gy_disabled'] and gy_showing then
 	  for _,v in ipairs(gy_lines) do
 	      v:Hide()
 	  end
@@ -432,7 +432,7 @@ local function update()
 	  return 
 	end
 
-	if logout_skip_settings['disabled'] == false then
+	if unstuck_skip_settings['disabled'] == false then
 		local currentMapID = WorldMapFrame:GetMapID()
 		local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
 
@@ -477,7 +477,7 @@ local function update()
 		showing = true
       end
 
-      if logout_skip_settings['gy_disabled'] == false then
+      if unstuck_skip_settings['gy_disabled'] == false then
 	      local currentMapID = WorldMapFrame:GetMapID()
 	      local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
 
@@ -535,25 +535,25 @@ hooksecurefunc(WorldMapFrame, 'OnMapChanged', function()
 	WorldMapUpdated = true
 end)
 
-if logout_skip_settings['disabled'] then
-  LogoutSkips_Toggle:SetText("Show LogoutSkips")
+if unstuck_skip_settings['disabled'] then
+  UnstuckSkips_Toggle:SetText("Show UnstuckSkips")
 else
-  LogoutSkips_Toggle:SetText("Hide LogoutSkips")
+  UnstuckSkips_Toggle:SetText("Hide UnstuckSkips")
 end
 
-function LogoutSkips_Toggle_Click()
-  logout_skip_settings['disabled'] = not logout_skip_settings['disabled']
-  if logout_skip_settings['disabled'] then
-    LogoutSkips_Toggle:SetText("Show LogoutSkips")
+function UnstuckSkips_Toggle_Click()
+  unstuck_skip_settings['disabled'] = not unstuck_skip_settings['disabled']
+  if unstuck_skip_settings['disabled'] then
+    UnstuckSkips_Toggle:SetText("Show UnstuckSkips")
   else
-    LogoutSkips_Toggle:SetText("Hide LogoutSkips")
+    UnstuckSkips_Toggle:SetText("Hide UnstuckSkips")
   end
   update()
 end
 
 function DeathSkips_Toggle_Click()
-  logout_skip_settings['gy_disabled'] = not logout_skip_settings['gy_disabled']
-  if logout_skip_settings['gy_disabled'] then
+  unstuck_skip_settings['gy_disabled'] = not unstuck_skip_settings['gy_disabled']
+  if unstuck_skip_settings['gy_disabled'] then
     DeathSkips_Toggle:SetText("Show DeathSkips")
   else
     DeathSkips_Toggle:SetText("Hide DeathSkips")
@@ -561,30 +561,30 @@ function DeathSkips_Toggle_Click()
   update()
 end
 
-local logout_skip_notifier = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
-logout_skip_notifier:SetPoint("CENTER")
-logout_skip_notifier:SetSize(160, 40)
-logout_skip_notifier:SetBackdrop(BACKDROP_TUTORIAL_16_16)
+local unstuck_skip_notifier = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+unstuck_skip_notifier:SetPoint("CENTER")
+unstuck_skip_notifier:SetSize(160, 40)
+unstuck_skip_notifier:SetBackdrop(BACKDROP_TUTORIAL_16_16)
 
-logout_skip_notifier:SetMovable(true)
-logout_skip_notifier:EnableMouse(true)
-logout_skip_notifier:RegisterForDrag("LeftButton")
-logout_skip_notifier.title_text = logout_skip_notifier:CreateFontString(nil,"ARTWORK")
-logout_skip_notifier.title_text:SetFont("Fonts\\ARIALN.ttf", 9, "OUTLINE")
-logout_skip_notifier.title_text:SetPoint("CENTER",0,10)
-logout_skip_notifier.title_text:SetText("LogoutSkip Target")
-logout_skip_notifier.title_text:SetWidth(160)
-logout_skip_notifier.title_text:SetWordWrap(false)
+unstuck_skip_notifier:SetMovable(true)
+unstuck_skip_notifier:EnableMouse(true)
+unstuck_skip_notifier:RegisterForDrag("LeftButton")
+unstuck_skip_notifier.title_text = unstuck_skip_notifier:CreateFontString(nil,"ARTWORK")
+unstuck_skip_notifier.title_text:SetFont("Fonts\\ARIALN.ttf", 9, "OUTLINE")
+unstuck_skip_notifier.title_text:SetPoint("CENTER",0,10)
+unstuck_skip_notifier.title_text:SetText("UnstuckSkip Target")
+unstuck_skip_notifier.title_text:SetWidth(160)
+unstuck_skip_notifier.title_text:SetWordWrap(false)
 
-logout_skip_notifier.text = logout_skip_notifier:CreateFontString(nil,"ARTWORK")
-logout_skip_notifier.text:SetFont("Fonts\\ARIALN.ttf", 10, "OUTLINE")
-logout_skip_notifier.text:SetPoint("CENTER",0,-5)
-logout_skip_notifier.text:SetText("LogoutSkip Target")
-logout_skip_notifier.text:SetWidth(150)
-logout_skip_notifier.text:SetWordWrap(false)
-logout_skip_notifier.timer_handle = nil
+unstuck_skip_notifier.text = unstuck_skip_notifier:CreateFontString(nil,"ARTWORK")
+unstuck_skip_notifier.text:SetFont("Fonts\\ARIALN.ttf", 10, "OUTLINE")
+unstuck_skip_notifier.text:SetPoint("CENTER",0,-5)
+unstuck_skip_notifier.text:SetText("UnstuckSkip Target")
+unstuck_skip_notifier.text:SetWidth(150)
+unstuck_skip_notifier.text:SetWordWrap(false)
+unstuck_skip_notifier.timer_handle = nil
 
-function logout_skip_notifier:UpdateTarget()
+function unstuck_skip_notifier:UpdateTarget()
   local function distanceSqFunc(x,y, x1, y1)
     return (x1-x)*(x1-x) + (y1-y)*(y1-y)
   end
@@ -610,7 +610,7 @@ function logout_skip_notifier:UpdateTarget()
 	end
       end
     end
-    logout_skip_notifier.text:SetText(best_loc)
+    unstuck_skip_notifier.text:SetText(best_loc)
   elseif continentID == 1 then -- kalimdor
     best_loc = nil
     loc_dist = nil
@@ -628,139 +628,139 @@ function logout_skip_notifier:UpdateTarget()
 	end
       end
     end
-    logout_skip_notifier.text:SetText(best_loc)
+    unstuck_skip_notifier.text:SetText(best_loc)
   end
 end
 
-logout_skip_notifier:SetScript("OnDragStart", function(self, button)
+unstuck_skip_notifier:SetScript("OnDragStart", function(self, button)
 	self:StartMoving()
 	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
 	local x,y = self:GetCenter()
 	local px,py = self:GetParent():GetCenter();
-	if logout_skip_settings['logout_skip_notifier_pos'] == nil then
-	  logout_skip_settings['logout_skip_notifier_pos'] = {}
+	if unstuck_skip_settings['unstuck_skip_notifier_pos'] == nil then
+	  unstuck_skip_settings['unstuck_skip_notifier_pos'] = {}
 	end
-	logout_skip_settings['logout_skip_notifier_pos']['x'] = x - px
-	logout_skip_settings['logout_skip_notifier_pos']['y'] = y - py
+	unstuck_skip_settings['unstuck_skip_notifier_pos']['x'] = x - px
+	unstuck_skip_settings['unstuck_skip_notifier_pos']['y'] = y - py
 end)
-logout_skip_notifier:SetScript("OnDragStop", function(self)
+unstuck_skip_notifier:SetScript("OnDragStop", function(self)
 	self:StopMovingOrSizing()
 
 	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
 	local x,y = self:GetCenter()
 	local px,py = self:GetParent():GetCenter();
-	if logout_skip_settings['logout_skip_notifier_pos'] == nil then
-	  logout_skip_settings['logout_skip_notifier_pos'] = {}
+	if unstuck_skip_settings['unstuck_skip_notifier_pos'] == nil then
+	  unstuck_skip_settings['unstuck_skip_notifier_pos'] = {}
 	end
-	logout_skip_settings['logout_skip_notifier_pos']['x'] = x - px
-	logout_skip_settings['logout_skip_notifier_pos']['y'] = y - py
+	unstuck_skip_settings['unstuck_skip_notifier_pos']['x'] = x - px
+	unstuck_skip_settings['unstuck_skip_notifier_pos']['y'] = y - py
 end)
 
-local function applyLogoutSkipNotifierSettings()
-    if logout_skip_settings["show_logout_skip_notifier"] ~= nil and logout_skip_settings["show_logout_skip_notifier"] == false then
-      logout_skip_notifier:Hide()
-      logout_skip_notifier.text:Hide()
-      if logout_skip_notifier.timer_handle ~= nil then
-	logout_skip_notifier.timer_handle:Cancel()
-	logout_skip_notifier.timer_handle = nil
+local function applyUnstuckSkipNotifierSettings()
+    if unstuck_skip_settings["show_unstuck_skip_notifier"] ~= nil and unstuck_skip_settings["show_unstuck_skip_notifier"] == false then
+      unstuck_skip_notifier:Hide()
+      unstuck_skip_notifier.text:Hide()
+      if unstuck_skip_notifier.timer_handle ~= nil then
+	unstuck_skip_notifier.timer_handle:Cancel()
+	unstuck_skip_notifier.timer_handle = nil
       end
 
     else
-      logout_skip_notifier:Show()
-      logout_skip_notifier.text:Show()
+      unstuck_skip_notifier:Show()
+      unstuck_skip_notifier.text:Show()
 
-      if logout_skip_notifier.timer_handle ~= nil then
-	logout_skip_notifier.timer_handle:Cancel()
-	logout_skip_notifier.timer_handle = nil
+      if unstuck_skip_notifier.timer_handle ~= nil then
+	unstuck_skip_notifier.timer_handle:Cancel()
+	unstuck_skip_notifier.timer_handle = nil
       end
 
-	logout_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
-	  logout_skip_notifier:UpdateTarget()
+	unstuck_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
+	  unstuck_skip_notifier:UpdateTarget()
 	end)
     end
 end
 
 local options = {
-	name = "LogoutSkips Options",
+	name = "UnstuckSkips Options",
 	handler = Hardcore,
 	type = "group",
 	args = {
-		logout_skip_options_header = {
+		unstuck_skip_options_header = {
 			type = "group",
-			name = "LogoutSkips",
+			name = "UnstuckSkips",
 			order = 1,
 			inline = true,
 			args = {
-				logoutskip_partition_colorpicker = {
+				unstuckskip_partition_colorpicker = {
 					type = "color",
 					name = "Partition Color",
-					desc = "Pick LogoutSkip partition color",
+					desc = "Pick UnstuckSkip partition color",
 					hasAlpha = true,
 					get = function()
-					  if logout_skip_settings['logout_skip_partition_color'] then
-					  return logout_skip_settings['logout_skip_partition_color']['r'], logout_skip_settings['logout_skip_partition_color']['g'], logout_skip_settings['logout_skip_partition_color']['b'], logout_skip_settings['logout_skip_partition_color']['a']
+					  if unstuck_skip_settings['unstuck_skip_partition_color'] then
+					  return unstuck_skip_settings['unstuck_skip_partition_color']['r'], unstuck_skip_settings['unstuck_skip_partition_color']['g'], unstuck_skip_settings['unstuck_skip_partition_color']['b'], unstuck_skip_settings['unstuck_skip_partition_color']['a']
 
 					  else
-					    return defaults['logout_skip_partition_color']
+					    return defaults['unstuck_skip_partition_color']
 					  end
 					end,
 					set = function(info, r,g,b,a)
 
-					  if logout_skip_settings['logout_skip_partition_color'] == nil then
-					    logout_skip_settings['logout_skip_partition_color'] = {}
+					  if unstuck_skip_settings['unstuck_skip_partition_color'] == nil then
+					    unstuck_skip_settings['unstuck_skip_partition_color'] = {}
 					  end
-					  logout_skip_settings['logout_skip_partition_color']['r'] = r 
-					  logout_skip_settings['logout_skip_partition_color']['g'] = g
-					  logout_skip_settings['logout_skip_partition_color']['b'] = b
-					  logout_skip_settings['logout_skip_partition_color']['a'] = a
-					  applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'])
-					  applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'])
+					  unstuck_skip_settings['unstuck_skip_partition_color']['r'] = r 
+					  unstuck_skip_settings['unstuck_skip_partition_color']['g'] = g
+					  unstuck_skip_settings['unstuck_skip_partition_color']['b'] = b
+					  unstuck_skip_settings['unstuck_skip_partition_color']['a'] = a
+					  applyLinesColor(eastern_kingdom_lines, unstuck_skip_settings['unstuck_skip_partition_color'])
+					  applyLinesColor(lines_kalimdor, unstuck_skip_settings['unstuck_skip_partition_color'])
 					end,
 					order = 1,
 				},
-				logoutskip_target_colorpicker = {
+				unstuckskip_target_colorpicker = {
 					type = "color",
 					name = "Target Color",
 					desc = "Pick target color",
 					hasAlpha = true,
 					get = function()
-					  if logout_skip_settings['logout_skip_target_color'] then
-					  return logout_skip_settings['logout_skip_target_color']['r'], logout_skip_settings['logout_skip_target_color']['g'], logout_skip_settings['logout_skip_target_color']['b'], logout_skip_settings['logout_skip_target_color']['a']
+					  if unstuck_skip_settings['unstuck_skip_target_color'] then
+					  return unstuck_skip_settings['unstuck_skip_target_color']['r'], unstuck_skip_settings['unstuck_skip_target_color']['g'], unstuck_skip_settings['unstuck_skip_target_color']['b'], unstuck_skip_settings['unstuck_skip_target_color']['a']
 
 					  else
-					    return defaults['logout_skip_target_color']
+					    return defaults['unstuck_skip_target_color']
 					  end
 					end,
 					set = function(info, r,g,b,a)
 
-					  if logout_skip_settings['logout_skip_target_color'] == nil then
-					    logout_skip_settings['logout_skip_target_color'] = {}
+					  if unstuck_skip_settings['unstuck_skip_target_color'] == nil then
+					    unstuck_skip_settings['unstuck_skip_target_color'] = {}
 					  end
-					  logout_skip_settings['logout_skip_target_color']['r'] = r 
-					  logout_skip_settings['logout_skip_target_color']['g'] = g
-					  logout_skip_settings['logout_skip_target_color']['b'] = b
-					  logout_skip_settings['logout_skip_target_color']['a'] = a
-					  applyTargetsColor(texs_, logout_skip_settings['logout_skip_target_color'])
-					  applyTargetsColor(texs_kalimdor_, logout_skip_settings['logout_skip_target_color'])
+					  unstuck_skip_settings['unstuck_skip_target_color']['r'] = r 
+					  unstuck_skip_settings['unstuck_skip_target_color']['g'] = g
+					  unstuck_skip_settings['unstuck_skip_target_color']['b'] = b
+					  unstuck_skip_settings['unstuck_skip_target_color']['a'] = a
+					  applyTargetsColor(texs_, unstuck_skip_settings['unstuck_skip_target_color'])
+					  applyTargetsColor(texs_kalimdor_, unstuck_skip_settings['unstuck_skip_target_color'])
 					end,
 					order = 1,
 				},
-				logoutskip_notifier = {
+				unstuckskip_notifier = {
 					type = "toggle",
 					name = "Notifier",
 					desc = "Turn on and off notifier",
 					get = function()
-					  if logout_skip_settings['show_logout_skip_notifier'] == nil then
+					  if unstuck_skip_settings['show_unstuck_skip_notifier'] == nil then
 					    return true;
 					  end
-					  return logout_skip_settings['show_logout_skip_notifier']
+					  return unstuck_skip_settings['show_unstuck_skip_notifier']
 					end,
 					set = function(info, value)
-					  if logout_skip_settings['show_logout_skip_notifier'] == nil then
-					    logout_skip_settings['show_logout_skip_notifier'] = false
+					  if unstuck_skip_settings['show_unstuck_skip_notifier'] == nil then
+					    unstuck_skip_settings['show_unstuck_skip_notifier'] = false
 					  end
-					  logout_skip_settings['show_logout_skip_notifier'] = not logout_skip_settings['show_logout_skip_notifier'] 
-					  applyLogoutSkipNotifierSettings()
+					  unstuck_skip_settings['show_unstuck_skip_notifier'] = not unstuck_skip_settings['show_unstuck_skip_notifier'] 
+					  applyUnstuckSkipNotifierSettings()
 					end,
 					order = 1,
 				},
@@ -778,22 +778,22 @@ local options = {
 					desc = "Pick death skip partition color",
 					hasAlpha = true,
 					get = function()
-					  if logout_skip_settings['death_skip_partition_color'] then
-					  return logout_skip_settings['death_skip_partition_color']['r'], logout_skip_settings['death_skip_partition_color']['g'], logout_skip_settings['death_skip_partition_color']['b'], logout_skip_settings['death_skip_partition_color']['a']
+					  if unstuck_skip_settings['death_skip_partition_color'] then
+					  return unstuck_skip_settings['death_skip_partition_color']['r'], unstuck_skip_settings['death_skip_partition_color']['g'], unstuck_skip_settings['death_skip_partition_color']['b'], unstuck_skip_settings['death_skip_partition_color']['a']
 					  else
 					    return 1,1,1,.4
 					  end
 					end,
 					set = function(info, r,g,b,a)
-					    if logout_skip_settings['death_skip_partition_color'] == nil then
-					      logout_skip_settings['death_skip_partition_color'] = {}
+					    if unstuck_skip_settings['death_skip_partition_color'] == nil then
+					      unstuck_skip_settings['death_skip_partition_color'] = {}
 					    end
-					    logout_skip_settings['death_skip_partition_color']['r'] = r 
-					    logout_skip_settings['death_skip_partition_color']['g'] = g
-					    logout_skip_settings['death_skip_partition_color']['b'] = b
-					    logout_skip_settings['death_skip_partition_color']['a'] = a
-					  applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'])
-					  applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'])
+					    unstuck_skip_settings['death_skip_partition_color']['r'] = r 
+					    unstuck_skip_settings['death_skip_partition_color']['g'] = g
+					    unstuck_skip_settings['death_skip_partition_color']['b'] = b
+					    unstuck_skip_settings['death_skip_partition_color']['a'] = a
+					  applyLinesColor(gy_lines, unstuck_skip_settings['death_skip_partition_color'])
+					  applyLinesColor(gy_lines_kalimdor, unstuck_skip_settings['death_skip_partition_color'])
 					end,
 					order = 2,
 				},
@@ -805,22 +805,22 @@ local options = {
 					desc = "Pick death skip target color",
 					hasAlpha = true,
 					get = function()
-					  if logout_skip_settings['death_skip_target_color'] then
-					  return logout_skip_settings['death_skip_target_color']['r'], logout_skip_settings['death_skip_target_color']['g'], logout_skip_settings['death_skip_target_color']['b'], logout_skip_settings['death_skip_target_color']['a']
+					  if unstuck_skip_settings['death_skip_target_color'] then
+					  return unstuck_skip_settings['death_skip_target_color']['r'], unstuck_skip_settings['death_skip_target_color']['g'], unstuck_skip_settings['death_skip_target_color']['b'], unstuck_skip_settings['death_skip_target_color']['a']
 					  else
 					    return 1,1,1,.4
 					  end
 					end,
 					set = function(info, r,g,b,a)
-					    if logout_skip_settings['death_skip_target_color'] == nil then
-					      logout_skip_settings['death_skip_target_color'] = {}
+					    if unstuck_skip_settings['death_skip_target_color'] == nil then
+					      unstuck_skip_settings['death_skip_target_color'] = {}
 					    end
-					    logout_skip_settings['death_skip_target_color']['r'] = r 
-					    logout_skip_settings['death_skip_target_color']['g'] = g
-					    logout_skip_settings['death_skip_target_color']['b'] = b
-					    logout_skip_settings['death_skip_target_color']['a'] = a
-					  applyTargetsColor(eastern_kingdom_gy_texs_, logout_skip_settings['death_skip_target_color'])
-					  applyTargetsColor(kalimdor_gy_texs_, logout_skip_settings['death_skip_target_color'])
+					    unstuck_skip_settings['death_skip_target_color']['r'] = r 
+					    unstuck_skip_settings['death_skip_target_color']['g'] = g
+					    unstuck_skip_settings['death_skip_target_color']['b'] = b
+					    unstuck_skip_settings['death_skip_target_color']['a'] = a
+					  applyTargetsColor(eastern_kingdom_gy_texs_, unstuck_skip_settings['death_skip_target_color'])
+					  applyTargetsColor(kalimdor_gy_texs_, unstuck_skip_settings['death_skip_target_color'])
 					end,
 					order = 2,
 				},
@@ -831,31 +831,31 @@ local options = {
 
 
 
-LibStub("AceConfig-3.0"):RegisterOptionsTable("LogoutSkips", options)
-optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("LogoutSkips", "LogoutSkips")
+LibStub("AceConfig-3.0"):RegisterOptionsTable("UnstuckSkips", options)
+optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("UnstuckSkips", "UnstuckSkips")
 
-local logout_skip_event_handler = CreateFrame('frame', nil)
+local unstuck_skip_event_handler = CreateFrame('frame', nil)
 
-logout_skip_event_handler:SetScript("OnEvent", function(self, event, ...)
+unstuck_skip_event_handler:SetScript("OnEvent", function(self, event, ...)
   if event == "PLAYER_ENTERING_WORLD" then
-    applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'] or defaults['logout_skip_partition_color'])
-    applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'] or defaults['logout_skip_partition_color'])
-    applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
-    applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
+    applyLinesColor(eastern_kingdom_lines, unstuck_skip_settings['unstuck_skip_partition_color'] or defaults['unstuck_skip_partition_color'])
+    applyLinesColor(lines_kalimdor, unstuck_skip_settings['unstuck_skip_partition_color'] or defaults['unstuck_skip_partition_color'])
+    applyLinesColor(gy_lines, unstuck_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
+    applyLinesColor(gy_lines_kalimdor, unstuck_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
 
-    applyTargetsColor(kalimdor_gy_texs_, logout_skip_settings['death_skip_target_color'] or defaults['logout_skip_target_color'])
-    applyTargetsColor(eastern_kingdom_gy_texs_, logout_skip_settings['death_skip_target_color'] or defaults['logout_skip_target_color'])
-    applyTargetsColor(texs_, logout_skip_settings['logout_skip_target_color'] or defaults['death_skip_target_color'])
-    applyTargetsColor(texs_kalimdor_, logout_skip_settings['logout_skip_target_color'] or defaults['death_skip_target_color'])
+    applyTargetsColor(kalimdor_gy_texs_, unstuck_skip_settings['death_skip_target_color'] or defaults['unstuck_skip_target_color'])
+    applyTargetsColor(eastern_kingdom_gy_texs_, unstuck_skip_settings['death_skip_target_color'] or defaults['unstuck_skip_target_color'])
+    applyTargetsColor(texs_, unstuck_skip_settings['unstuck_skip_target_color'] or defaults['death_skip_target_color'])
+    applyTargetsColor(texs_kalimdor_, unstuck_skip_settings['unstuck_skip_target_color'] or defaults['death_skip_target_color'])
 
-    applyLogoutSkipNotifierSettings()
-    if logout_skip_settings["logout_skip_notifier_pos"] then
-      logout_skip_notifier:SetPoint("CENTER", UIParent, "CENTER", logout_skip_settings["logout_skip_notifier_pos"]['x'], logout_skip_settings["logout_skip_notifier_pos"]['y'])
+    applyUnstuckSkipNotifierSettings()
+    if unstuck_skip_settings["unstuck_skip_notifier_pos"] then
+      unstuck_skip_notifier:SetPoint("CENTER", UIParent, "CENTER", unstuck_skip_settings["unstuck_skip_notifier_pos"]['x'], unstuck_skip_settings["unstuck_skip_notifier_pos"]['y'])
     end
 
-    logout_skip_notifier:UpdateTarget()
+    unstuck_skip_notifier:UpdateTarget()
 
   end
 end)
 
-logout_skip_event_handler:RegisterEvent("PLAYER_ENTERING_WORLD")
+unstuck_skip_event_handler:RegisterEvent("PLAYER_ENTERING_WORLD")

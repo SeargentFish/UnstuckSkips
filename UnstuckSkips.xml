@@ -1,5 +1,5 @@
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-    <Button name="LogoutSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show LogoutSkips">
+    <Button name="UnstuckSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show UnstuckSkips">
         <Size>
             <AbsDimension x="130" y="20"/>
         </Size>
@@ -15,7 +15,7 @@
                 self:SetFrameLevel(10);
             </OnLoad>
             <OnClick>
-		LogoutSkips_Toggle_Click()
+		UnstuckSkips_Toggle_Click()
             </OnClick>
         </Scripts>
     </Button>
