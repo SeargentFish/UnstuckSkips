@@ -15,6 +15,7 @@
 ## Category-zhCN: 地图
 ## Category-zhTW: 地圖
 ## SavedVariablesPerCharacter: locs2, locs_kalimdor2, unstuck_skip_settings
+## X-Curse-Project-ID: 1639146
 
 Data/eastern_kingdom_partitions.lua
 Data/eastern_kingdom_locs.lua
