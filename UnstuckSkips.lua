@@ -650,7 +650,7 @@ local function applyUnstuckSkipNotifierSettings()
         unstuck_skip_notifier.timer_handle = nil
       end
 
-	  unstuck_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
+	  unstuck_skip_notifier.timer_handle = C_Timer.NewTicker(1.0, function()
 	    unstuck_skip_notifier:UpdateTarget()
 	  end)
     end
