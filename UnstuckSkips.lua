@@ -583,7 +583,9 @@ function unstuck_skip_notifier:UpdateTarget()
   end
 
   local map = C_Map.GetBestMapForUnit("player")
-  if not map then return end
+  if not map then
+    return unstuck_skip_notifier:Hide()
+  end
   local position = C_Map.GetPlayerMapPosition(map, "player")
   local continentID, worldPosition = C_Map.GetWorldPosFromMapPos(map, position)
   if continentID == 0 then -- EK
@@ -642,7 +644,6 @@ local function applyUnstuckSkipNotifierSettings()
 
     else
       unstuck_skip_notifier:Show()
-      unstuck_skip_notifier.text:Show()
 
       if unstuck_skip_notifier.timer_handle ~= nil then
         unstuck_skip_notifier.timer_handle:Cancel()
