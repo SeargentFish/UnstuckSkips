@@ -2,3 +2,8 @@ package-as: UnstuckSkips
 
 ignore:
     - README.md
+	- DataType.py
+	- GenerateVoronoiPartitions.py
+	- gyClassic.json
+	- instances.json
+	- Voronoi.py
