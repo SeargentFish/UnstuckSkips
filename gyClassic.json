@@ -58,7 +58,7 @@
       "x": -5287.337,
       "y": 2116.78979,
       "graveyard": 1,
-      "title": "Eastern Plaguelands, Light\\'s Hope Chapel"
+      "title": "Eastern Plaguelands, Light's Hope Chapel"
     },
 	{
       "x": -3379.4,
@@ -137,7 +137,7 @@
       "x": -543.39,
       "y": 2604.52,
       "graveyard": 1,
-      "title": "Tirisfal Glades, Faol\\'s Rest"
+      "title": "Tirisfal Glades, Faol's Rest"
     },
     {
       "x": -228.6365,
@@ -290,7 +290,7 @@
       "x": -1833.24072,
       "y": -11110.377,
       "graveyard": 1,
-      "title": "Deadwind Pass, Morgan\\'s Plot"
+      "title": "Deadwind Pass, Morgan's Plot"
     },
     {
       "x": -3493.108,
@@ -347,12 +347,12 @@
     {
       "x": -2531.75,
       "y": -1215.59,
-      "title": "Arathi Basin - Alliance Exit"
+      "title": "Arathi Basin, Alliance Exit"
     },
     {
       "x": -3518.52,
       "y": -831.881,
-      "title": "Arathi Basin - Horde Exit"
+      "title": "Arathi Basin, Horde Exit"
     },
     {
       "x": -2411.99,
@@ -398,7 +398,7 @@
       "x": -4985,
       "y": -778,
       "graveyard": 1,
-      "title": "Durotar, Sen\\'jin Village"
+      "title": "Durotar, Sen'jin Village"
     },
     {
       "x": -1217.75,
@@ -502,13 +502,13 @@
       "x": -2436.67432,
       "y": -7205.565,
       "graveyard": 1,
-      "title": "Un\\'Goro Crater, The Marshlands"
+      "title": "Un'Goro Crater, The Marshlands"
     },
     {
       "x": -1600.29138,
       "y": 3806.53955,
       "graveyard": 1,
-      "title": "Felwood, Morlos\\'Aran"
+      "title": "Felwood, Morlos'Aran"
     },
     {
       "x": 434.53,
@@ -567,7 +567,7 @@
     {
       "x": 965,
       "y": 8706,
-      "title": "Teldrassil, Rut\\'theran Village"
+      "title": "Teldrassil, Rut'theran Village"
     },
     {
       "x": 811.5312,
@@ -603,7 +603,7 @@
       "x": -278.2921,
       "y": -6432.25635,
       "graveyard": 1,
-      "title": "Silithus, Valor\\'s Rest"
+      "title": "Silithus, Valor's Rest"
     },
     {
       "x": -1765,
@@ -661,12 +661,12 @@
     {
       "x": -1858.67,
       "y": 1459.17,
-      "title": "Warsong Gulch - Alliance Exit Loc"
+      "title": "Warsong Gulch, Alliance Exit Loc"
     },
     {
       "x": -2104.28,
       "y": 1035.27,
-      "title": "Warsong Gulch - Horde Exit Loc"
+      "title": "Warsong Gulch, Horde Exit Loc"
     },
     {
       "x": -4296.03369,
@@ -726,12 +726,12 @@
     {
       "x": -1027.863,
       "y": -448.1886,
-      "title": "Plains of Snow - Alliance Start"
+      "title": "Plains of Snow, Alliance Start"
     },
     {
       "x": -485.309021,
       "y": -661.528442,
-      "title": "Plains of Snow - Horde Start"
+      "title": "Plains of Snow, Horde Start"
     }
   ],
   "451": [
@@ -760,69 +760,69 @@
     {
       "x": 1387.49,
       "y": 1029.14,
-      "title": "Warsong Gulch - Horde Rez Loc"
+      "title": "Warsong Gulch, Horde Rez Loc"
     },
     {
       "x": 1554.79,
       "y": 1415.33,
-      "title": "Warsong Gulch - Alliance Rez Loc"
+      "title": "Warsong Gulch, Alliance Rez Loc"
     },
     {
       "x": 1433.724,
       "y": 933.3315,
-      "title": "Warsong Gulch - Horde Enter Loc"
+      "title": "Warsong Gulch, Horde Enter Loc"
     },
     {
       "x": 1481.86841,
       "y": 1519.53027,
-      "title": "Warsong Gulch - Alliance Enter Loc"
+      "title": "Warsong Gulch, Alliance Enter Loc"
     }
   ],
   "529": [
     {
       "x": 1213.11377,
       "y": 772.7557,
-      "title": "Arathi Basin - Graveyard, ALT-S (Lumber Mill)"
+      "title": "Arathi Basin, Graveyard, ALT-S (Lumber Mill)"
     },
     {
       "x": 781.556946,
       "y": 1211.52368,
-      "title": "Arathi Basin - Graveyard, ALT-N (Gold Mine)"
+      "title": "Arathi Basin, Graveyard, ALT-N (Gold Mine)"
     },
     {
       "x": 1163.13062,
       "y": 1201.86951,
-      "title": "Arathi Basin - Graveyard, A-Mid (Stables)"
+      "title": "Arathi Basin, Graveyard, A-Mid (Stables)"
     },
     {
       "x": 955.1847,
       "y": 1016.58832,
-      "title": "Arathi Basin - Graveyard, Mid (Blacksmith)"
+      "title": "Arathi Basin, Graveyard, Mid (Blacksmith)"
     },
     {
       "x": 784.9787,
       "y": 834.7264,
-      "title": "Arathi Basin - Graveyard, H-Mid (Farm)"
+      "title": "Arathi Basin, Graveyard, H-Mid (Farm)"
     },
     {
       "x": 638.364,
       "y": 713.71,
-      "title": "Arathi Basin - Graveyard, H-Base (Defiler\\'s Den)"
+      "title": "Arathi Basin, Graveyard, H-Base (Defiler's Den)"
     },
     {
       "x": 1270.27,
       "y": 1354.7,
-      "title": "Arathi Basin - Graveyard, A-Base (Trollbane Hall)"
+      "title": "Arathi Basin, Graveyard, A-Base (Trollbane Hall)"
     },
     {
       "x": 1310.74,
       "y": 1313.9,
-      "title": "Arathi Basin - Alliance Entrance"
+      "title": "Arathi Basin, Alliance Entrance"
     },
     {
       "x": 681.22,
       "y": 684.014,
-      "title": "Arathi Basin - Horde Entrance"
+      "title": "Arathi Basin, Horde Entrance"
     }
   ]
 }
