@@ -1,6 +1,6 @@
 # UnstuckSkips
 
-This is a fork of the original [UnstuckSkips addon](https://github.com/aaronma37/UnstuckSkips). It's maintained by SeargentFish.
+This is a fork of the original [LogoutSkips addon](https://github.com/aaronma37/LogoutSkips) and is maintained by SeargentFish.
 
 ## Acknowledgements
 - aaronma37/yazpad: Original addon
