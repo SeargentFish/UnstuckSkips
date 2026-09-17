@@ -3,7 +3,11 @@ import os
 import json
 from pathlib import Path
 
-file_path = os.path.dirname(os.path.realpath(__file__))
+parent_dir = Path(__file__).resolve().parent
+
+
+file_path = parent_dir.parent / "Data"
+print(file_path)
 
 def toLua(input_string):
     output_string = input_string.replace('[', '{')
@@ -59,36 +63,36 @@ for v in instance_locs['0']:
         eastern_kingdom_locs.append((v['x'],v['y'], v['title']))
 
 
-p = Path('Data/eastern_kingdom_locs.lua')
+p = file_path / "eastern_kingdom_locs.lua"
 p.open('w').write("eastern_kingdom_locs = " + toLua(json.dumps(eastern_kingdom_locs)))
 
-p = Path('Data/eastern_kingdom_gy_locs.lua')
+p = file_path / "eastern_kingdom_gy_locs.lua"
 p.open('w').write("eastern_kingdom_gy_locs = " + toLua(json.dumps(eastern_kingdom_gy_locs)))
 
-p = Path('Data/kalimdor_locs.lua')
+p = file_path / "kalimdor_locs.lua"
 p.open('w').write("kalimdor_locs = " + toLua(json.dumps(kalimdor_locs)))
 
-p = Path('Data/kalimdor_gy_locs.lua')
+p = file_path / "kalimdor_gy_locs.lua"
 p.open('w').write("kalimdor_gy_locs = " + toLua(json.dumps(kalimdor_gy_locs)))
 
 vp = Voronoi(kalimdor_locs)
 vp.process()
-p = Path('Data/kalimdor_partitions.lua')
+p = file_path / "kalimdor_partitions.lua"
 p.open('w').write("kalimdor_partitions = " + toLua(json.dumps(vp.get_output())))
 
 vp = Voronoi(eastern_kingdom_locs)
 vp.process()
-p = Path('Data/eastern_kingdom_partitions.lua')
+p = file_path / "eastern_kingdom_partitions.lua"
 p.open('w').write("eastern_kingdom_partitions = " + toLua(json.dumps(vp.get_output())))
 
 vp = Voronoi(eastern_kingdom_gy_locs)
 vp.process()
-p = Path('Data/eastern_kingdom_gy_partitions.lua')
+p = file_path / "eastern_kingdom_gy_partitions.lua"
 p.open('w').write("eastern_kingdom_gy_partitions = " + toLua(json.dumps(vp.get_output())))
 
 vp = Voronoi(kalimdor_gy_locs)
 vp.process()
-p = Path('Data/kalimdor_gy_partitions.lua')
+p = file_path / "kalimdor_gy_partitions.lua"
 p.open('w').write("kalimdor_gy_partitions = " + toLua(json.dumps(vp.get_output())))
 
 
