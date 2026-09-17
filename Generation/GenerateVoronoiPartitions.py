@@ -7,10 +7,10 @@ parent_dir = Path(__file__).resolve().parent
 file_path = parent_dir.parent / "Data"
 
 def toLua(input_string):
-    output_string = input_string.replace('[', '{')
+    output_string = input_string.replace('[[', '{\n\t{')
+    output_string = output_string.replace(']]', '}\n}')
+    output_string = output_string.replace('[', '\n\t{')
     output_string = output_string.replace(']', '}')
-    output_string = output_string.replace(')', '}')
-    output_string = output_string.replace('(', '{')
     return output_string
 
 f = open('gyClassic.json')
