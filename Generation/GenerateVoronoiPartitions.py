@@ -4,10 +4,7 @@ import json
 from pathlib import Path
 
 parent_dir = Path(__file__).resolve().parent
-
-
 file_path = parent_dir.parent / "Data"
-print(file_path)
 
 def toLua(input_string):
     output_string = input_string.replace('[', '{')
@@ -102,10 +99,10 @@ p.open('w').write("kalimdor_gy_partitions = " + toLua(json.dumps(vp.get_output()
 # print("kalimdor")
 # print(y)
 
-vp = Voronoi(kalimdor_locs)
-vp.process()
-y = json.dumps(vp.get_output())
-y = y.replace('[', '{')
-y = y.replace(']', '}')
-print("eastern kingdom")
-print(y)
+# vp = Voronoi(kalimdor_locs)
+# vp.process()
+# y = json.dumps(vp.get_output())
+# y = y.replace('[', '{')
+# y = y.replace(']', '}')
+# print("eastern kingdom")
+# print(y)
