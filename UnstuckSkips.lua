@@ -127,9 +127,9 @@ local function GetIntersect2(p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y)
     if ub < 0 or ub > 1 then
         return nil
     end
-    x = p1x + ua * (p2x-p1x)
-    y = p1y + ua * (p2y-p1y)
-    return x, y, (x - p3x) / (p4x - p3x), (y - p3y) / (p4y - p3y)
+    local x = p1x + ua * (p2x-p1x)
+    local y = p1y + ua * (p2y-p1y)
+    return x, y, getRatio(x, p3x, p4x), getRatio(y, p3y, p4y)
 end
 
 local WorldMapButton = WorldMapFrame:GetCanvas()
