@@ -1,5 +1,5 @@
 package-as: UnstuckSkips
 
 ignore:
-    - README.md
-	- Generation
+  - README.md
+  - Generation
