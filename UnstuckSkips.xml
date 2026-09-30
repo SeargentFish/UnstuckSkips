@@ -1,41 +1,41 @@
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-    <Button name="UnstuckSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show UnstuckSkips">
+    <Button name="UnstuckSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show UnstuckSkips" frameStrata="DIALOG">
         <Size>
             <AbsDimension x="130" y="20"/>
         </Size>
         <Anchors>
-            <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="WorldMapZoomOutButton">
+            <Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="WorldMapFrame">
                 <Offset>
-                    <AbsDimension x="82" y="-58"/>
+                    <AbsDimension x="-60" y="-60"/>
                 </Offset>
             </Anchor>
         </Anchors>
         <Scripts>
             <OnLoad>
-                self:SetFrameLevel(10);
+                self:SetFrameLevel(500);
             </OnLoad>
             <OnClick>
-		UnstuckSkips_Toggle_Click()
+                UnstuckSkips_Toggle_Click()
             </OnClick>
         </Scripts>
     </Button>
-    <Button name="DeathSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show DeathSkips">
+    <Button name="DeathSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Show DeathSkips" frameStrata="DIALOG">
         <Size>
             <AbsDimension x="130" y="20"/>
         </Size>
         <Anchors>
-            <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="WorldMapZoomOutButton">
+            <Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="WorldMapFrame">
                 <Offset>
-                    <AbsDimension x="82" y="-78"/>
+                    <AbsDimension x="-60" y="-82"/>
                 </Offset>
             </Anchor>
         </Anchors>
         <Scripts>
             <OnLoad>
-                self:SetFrameLevel(10);
+                self:SetFrameLevel(500);
             </OnLoad>
             <OnClick>
-		DeathSkips_Toggle_Click()
+                DeathSkips_Toggle_Click()
             </OnClick>
         </Scripts>
     </Button>
