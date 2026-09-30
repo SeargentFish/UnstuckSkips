@@ -1,4 +1,4 @@
-## Interface: 11509, 20506, 30405
+## Interface: 11509, 16001, 20506, 30405
 ## Title: UnstuckSkips
 ## Notes: Shows unstuck skip and death skip partitions
 ## Author: SeargentFish (maintainer), Yazpad, Zarant, Semlar for original MapLines implementation, Tactics and TommySalami for skip discoveries and research
